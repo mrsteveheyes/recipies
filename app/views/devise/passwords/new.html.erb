@@ -1,0 +1,12 @@
+<%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { class: "flex items-center justify-center h-screen flex-col", method: :post }) do |f| %>
+  <h1 class="text-3xl font-bold leading-8 tracking-tight text-center">Forgot your password?</h1>
+  <%= render "devise/shared/error_messages", resource: resource %>
+  <div class="field">
+    <%= f.label :email, class: "label" %>
+    <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "input input-bordered w-full" %>
+  </div>
+  <div class="actions w-full">
+    <%= f.submit "Send me reset password instructions", class: "btn btn-primary w-full" %>
+  </div>
+<% end %>
+<%= render "devise/shared/links" %>

@@ -15,14 +15,22 @@
     <%= javascript_importmap_tags %>
   </head>
   <body>
-    <main class="container mx-auto mt-28 px-5 flex">
-      <% if notice %>
-        <p class="notice"><%= notice %></p>
-      <% end %>
-      <% if alert %>
-        <p class="alert"><%= alert %></p>
-      <% end %>
-      <%= yield %>
+    <main class="min-h-screen max-w-screen m-0 flex justify-center flex-1">
+      <div class="flex-1 bg-base text-center hidden lg:flex">
+      </div>
+      <div class="w-full lg:w-1/2 xl:w-5/12 py-0 px-6 sm:px-12 bg-white">
+        <% if notice %>
+          <div class="toast toast-top toast-end">
+            <p class="alert"><%= notice %></p>
+          </div>
+        <% end %>
+        <% if alert %>
+          <div class="toast toast-top toast-end">
+            <p class="alert alert-error"><%= alert %></p>
+          </div>
+        <% end %>
+        <%= yield %>
+      </div>
     </main>
   </body>
 </html>
