@@ -15,14 +15,29 @@
     <%= javascript_importmap_tags %>
   </head>
   <body>
-    <main class="container mx-auto mt-28 px-5 flex">
-      <% if notice %>
-        <p class="notice"><%= notice %></p>
-      <% end %>
-      <% if alert %>
-        <p class="alert"><%= alert %></p>
-      <% end %>
-      <%= yield %>
+    <main class="">
+      <div class="drawer lg:drawer-open">
+        <input id="my-drawer-2" type="checkbox" class="drawer-toggle" />
+        <div class="drawer-content flex flex-col p-4">
+          <label for="my-drawer-2" class="btn btn-primary drawer-button lg:hidden">
+            Open drawer
+          </label>
+          <% if notice %>
+            <p class="notice"><%= notice %></p>
+          <% end %>
+          <% if alert %>
+            <p class="alert"><%= alert %></p>
+          <% end %>
+          <%= yield %>
+        </div>
+        <div class="drawer-side">
+          <label for="my-drawer-2" aria-label="close sidebar" class="drawer-overlay"></label>
+          <ul class="menu bg-base-200 text-base-content min-h-full w-80 p-4">
+            <!-- Sidebar content here -->
+            <li><a class="<%= "active" if current_page? %>"><%= inline_svg_tag "home.svg", class:'inline-block w-6 h-6' %> Home</a></li>
+          </ul>
+        </div>
+      </div>
     </main>
   </body>
 </html>
