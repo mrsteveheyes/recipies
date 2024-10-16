@@ -1,0 +1,12 @@
+{
+    "editor.formatOnSave": true,
+    "vscode-erb-beautify.ignoreFormatFilePatterns": [
+        "**/email_templates/**/*.erb"
+    ],
+    "[ruby]": {
+        "editor.defaultFormatter": "rubocop.vscode-rubocop"
+    },
+    "[erb]": {
+        "editor.defaultFormatter": "aliariff.vscode-erb-beautify",
+    }
+}
