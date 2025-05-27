@@ -10,7 +10,7 @@ class Users::RegistrationsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should create new family if no token provided" do
-    assert_difference ["User.count", "Family.count"] do
+    assert_difference [ "User.count", "Family.count" ] do
       post user_registration_path, params: { user: { email: "test2@example.com", password: "password", password_confirmation: "password", family_name: "New Family" } }
     end
     assert_not_nil User.last.family
@@ -18,7 +18,7 @@ class Users::RegistrationsControllerTest < ActionDispatch::IntegrationTest
 
   test "should create new family with provided family_name if no token provided" do
     family_name = "Custom Family Name"
-    assert_difference ["User.count", "Family.count"] do
+    assert_difference [ "User.count", "Family.count" ] do
       post user_registration_path, params: { user: { email: "test3@example.com", password: "password", password_confirmation: "password", family_name: family_name } }
     end
     assert_equal family_name, User.last.family.name
