@@ -35,6 +35,12 @@
           <ul class="menu bg-base-200 text-base-content min-h-full w-80 p-4">
             <!-- Sidebar content here -->
             <li><a class="<%= "active" if current_page? %>"><%= inline_svg_tag "home.svg", class:'inline-block w-6 h-6' %> Home</a></li>
+            <% if user_signed_in? %>
+              <li class="menu-title">User Info</li>
+              <li>Family: <%= current_user.family.name %></li>
+              <li>Email: <%= current_user.email %></li>
+              <li><%= button_to "Log out", destroy_user_session_path, method: :delete, class: "btn btn-ghost" %></li>
+            <% end %>
           </ul>
         </div>
       </div>

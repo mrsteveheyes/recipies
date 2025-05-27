@@ -5,4 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   belongs_to :family
+  has_many :recipes, dependent: :destroy
+
+  attr_accessor :family_name
 end
